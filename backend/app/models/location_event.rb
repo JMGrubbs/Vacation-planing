@@ -1,0 +1,2 @@
+class LocationEvent < ApplicationRecord
+end

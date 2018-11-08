@@ -28,6 +28,7 @@ ruby models
   - fetured vacations
   - top deals
 - Locations
+
   - hotel
     - name
     - rooms
@@ -43,5 +44,6 @@ ruby models
     - hrs
     - popular foods
   - events
+
     - name
     - description
