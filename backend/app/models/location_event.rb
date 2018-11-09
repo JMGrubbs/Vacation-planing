@@ -1,2 +1,0 @@
-class LocationEvent < ApplicationRecord
-end

@@ -1,51 +1,26 @@
-class HotelsController < ApplicationController
-  before_action :set_hotel, only: [:show, :update, :destroy]
-
-  # GET /hotels
-  def index
-    @hotels = Hotel.all
-
-    render json: @hotels
-  end
-
-  # GET /hotels/1
-  def show
-    render json: @hotel
-  end
-
-  # POST /hotels
-  def create
-    @hotel = Hotel.new(hotel_params)
-
-    if @hotel.save
-      render json: @hotel, status: :created, location: @hotel
-    else
-      render json: @hotel.errors, status: :unprocessable_entity
+class Api::V1::HotelsController < ApplicationController
+    before_action :find_hotel, only: [:update]
+    def index
+      @hotels = Hotel.all
+      render json: @hotels
     end
-  end
-
-  # PATCH/PUT /hotels/1
-  def update
-    if @hotel.update(hotel_params)
-      render json: @hotel
-    else
-      render json: @hotel.errors, status: :unprocessable_entity
+  
+    def update
+      @hotel.update(hotel_params)
+      if @hotel.save
+        render json: @hotel, status: :accepted
+      else
+        render json: { errors: @hotel.errors.full_messages }, status: :unprocessible_entity
+      end
     end
-  end
-
-  # DELETE /hotels/1
-  def destroy
-    @hotel.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hotel
-      @hotel = Hotel.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
+  
+    private
+  
     def hotel_params
-      params.require(:hotel).permit(:name, :meals, :rating, :pool)
+      params.permit(:name, :pool, :meals, :rating, :address)
+    end
+  
+    def find_hotel
+      @hotel = Hotel.find(params[:id])
     end
 end

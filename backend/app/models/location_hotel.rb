@@ -1,2 +1,0 @@
-class LocationHotel < ApplicationRecord
-end

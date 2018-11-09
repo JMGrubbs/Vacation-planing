@@ -38,7 +38,7 @@ ruby models
   - sites
     - descriptions
     - name
-  - restaurants
+  - restaurant
     - Food types
     - address
     - hrs
@@ -47,3 +47,7 @@ ruby models
 
     - name
     - description
+
+    Hotel.create(name: '24/7', pool: true, meals: "breakfast", address: "4321 N cleveland ave, Kansas City MO, 66114", rating: 5)
+
+    https://github.com/learn-co-curriculum/mod3-project-week-setup-example
