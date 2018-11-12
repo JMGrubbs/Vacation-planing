@@ -1,17 +1,17 @@
 # my-react-app
 
-Traval plannig app.
+Traval planning app.
 
-- When enter have accsess to a home screen.
-  - Has a home page feed on hotest deals
-  - vacation resort previes
+- When enter have access to a home screen.
+  - Has a home page feed on hottest deals
+  - vacation resort previews
   - can explore vacation locations
     - hotels
     - popular sites
     - good restaurants
     - contains events near the hotel area
 - a sign-up and or login
-- Most travaled to locations.
+- Most traveled to locations.
 
 ruby models
 
@@ -25,7 +25,7 @@ ruby models
 - Home page
   - best Spots
   - flights
-  - fetured vacations
+  - featured vacations
   - top deals
 - Locations
 
