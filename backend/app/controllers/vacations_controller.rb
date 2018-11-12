@@ -4,6 +4,11 @@ class VacationsController < ApplicationController
       @vacations = Vacation.all
       render json: @vacations
     end
+
+    def show
+      @vacation = Vacation.find(params[:id])
+      render json: @vacation
+    end
   
     def update
       @vacation.update(vacation_params)

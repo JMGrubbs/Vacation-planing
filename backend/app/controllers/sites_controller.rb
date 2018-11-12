@@ -4,7 +4,12 @@ class SitesController < ApplicationController
       @sites = Site.all
       render json: @sites
     end
-  
+
+    def show
+      @site = Site.find(params[:id])
+      render json: @site
+    end
+
     def update
       @site.update(site_params)
       if @site.save

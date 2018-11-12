@@ -4,6 +4,11 @@ class Api::V1::HotelsController < ApplicationController
       @hotels = Hotel.all
       render json: @hotels
     end
+
+    def show
+      @hotel = Hotel.find(params[:id])
+      render json: @hotel
+    end
   
     def update
       @hotel.update(hotel_params)
