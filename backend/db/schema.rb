@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2018_11_09_184112) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "location_id"
+    t.integer "vacation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 2018_11_09_184112) do
   create_table "sites", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "location_id"
+    t.integer "vacation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_184112) do
 
   create_table "vacations", force: :cascade do |t|
     t.string "name"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

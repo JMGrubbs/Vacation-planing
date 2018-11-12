@@ -1,8 +1,7 @@
 class Vacation < ApplicationRecord
-    belongs_to :user
-    has_many :locations
+    belongs_to :location, optional: true
     has_many :sites
-    has_many :hotels
+    # has_many :hotels
     has_many :events
-    has_many :restaurants
+    # has_many :restaurants
 end
