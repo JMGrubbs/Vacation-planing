@@ -2,15 +2,21 @@ import React, { Component } from "react";
 import LocationsPage from "./containers/LocationsPage"
 import LocationPage from "./containers/LocationPage"
 import "./App.css";
+import EventsAndSites from "./containers/EventsAndSitesContainer";
 const URL = "http://localhost:3000"
 
 class App extends Component {
   state = {
     render: "default",
     locations: [],
-    currentLocation: {},
     events: [],
-    sites: []
+    sites: [],
+    currentLocation: {},
+    vacation: {
+      location: null,
+      events: "",
+      sites: ""
+    }
   }
 
   componentDidMount() {
@@ -27,8 +33,8 @@ class App extends Component {
     .then(sites => this.setState({ sites }))
   }
 
-  toggleRender = event => {
-    this.setState({ render: event.target.id })
+  toggleRender = page => {
+    this.setState({ render: page })
   }
 
   changeLocation = location => {
@@ -37,34 +43,45 @@ class App extends Component {
       render: "location" })
   }
 
+  changeVacationLocation = id => {
+    let vacation = this.state.vacation;
+    vacation.location = id;
+    this.setState({ vacation })
+  }
+
   render() {
     if (this.state.render === "default") {
       return (
         <div className="container">
           <h1>Welcome to my-react-app!</h1>
-          <button id="locations" onClick={this.toggleRender}>Plan Your Vacation</button>
+          <button onClick={() => this.toggleRender("locations")}>Plan Your Vacation</button>
         </div>
       );
     } else if (this.state.render === "locations") {
       return (
-        <LocationsPage locations={this.state.locations} changeLocation={this.changeLocation} />
+        <LocationsPage
+          locations={this.state.locations}
+          changeLocation={this.changeLocation}
+         />
       )
     } else if (this.state.render === "location") {
       return (
-        <LocationPage location={this.state.currentLocation} />
+        <LocationPage
+          location={this.state.currentLocation}
+          changeVacationLocation={this.changeVacationLocation}
+          toggleRender={this.toggleRender}
+         />
+      )
+    } else if (this.state.render === "events-and-sites") {
+      return (
+        <EventsAndSites
+          location={this.state.currentLocation}
+          events={this.state.events}
+          sites={this.state.sites} 
+        />
       )
     }
   }
 }
-
-  // createNewVacation = () => {
-  //   const data = {}
-
-  //   fetch(`${URL}/vacations`, {
-  //     method: "PATCH",
-  //     body: JSON.stringify(data),
-  //     headers: {"Content-Type": "application/json"}
-  //   })
-  // }
 
 export default App;
