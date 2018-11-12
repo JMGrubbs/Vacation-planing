@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-    before_action :find_location, only: [:update]
+  
     def index
       @locations = Location.all
       render json: @locations
