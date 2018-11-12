@@ -4,6 +4,16 @@ class VacationsController < ApplicationController
       @vacations = Vacation.all
       render json: @vacations
     end
+
+    def create
+      @vacation = Vacation.create(name: params[:name], location_id: params[:location_id])
+      render json: @vacation
+    end
+
+    def show
+      @vacation = Vacation.find(params[:id])
+      render json: @vacation
+    end
   
     def update
       @vacation.update(vacation_params)
@@ -17,7 +27,7 @@ class VacationsController < ApplicationController
     private
   
     def vacation_params
-      params.permit(:name, :description)
+      params.require(:vacation).permit(:name, :location_id)
     end
   
     def find_vacation

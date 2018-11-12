@@ -27,15 +27,15 @@ Location.create(name: "San Diego", image: "http://tesoltraining.net/wp-content/u
 Location.create(name: "San Francisco", image: "https://wonderfulengineering.com/wp-content/uploads/2015/05/San-Francisco-Wallpaper-13.jpg", description: "San Francisco is a unique city, much loved by visitors, who return frequently to take in the myriad pleasures of the 'city by the bay' With more than 3,500 restaurants and drinking establishments and an estimated 30,000-plus hotel rooms, visitors are in tourist paradise. Arguable the most attractive of American cities and regularly voted the best city in the USA, San Francisco is adored because of its colourful history, dramatic setting and its laissez-faire atmosphere, a quality missing from synthetic Los Angeles. San Francisco began life as a feisty frontier town, and little has changed in 150 years. The city only occupies 47 hilly square miles of California, but it captivates the world. It is a regular trendsetter in everything alternative, from flower-power to 'free love' and gay liberation; it prides itself on being individualistic, down-to-earth and cultured.")
 
 
-Event.create(name: "The Music festival", description: "All the music")
-Event.create(name: "Art", description: "Look at these great peices")
-Event.create(name: "Hot Dog Eating", description: "See how many hotdogs you can eat")
-Event.create(name: "Water Park", description: "Have some fun in the sun.")
+Event.create(name: "The Music festival", description: "All the music", location_id: orlando.id)
+Event.create(name: "Art", description: "Look at these great peices", location_id: sydney.id)
+Event.create(name: "Hot dog eating", description: "See how many hotdogs you can eat", location_id: london.id)
+Event.create(name: "Water Park", description: "Have some fun in the sun.", location_id: paris.id)
 
-Site.create(name: "The Eiffel Tower", description: "Really tall")
-Site.create(name: "The great library", description: "Lots of readin to do")
-Site.create(name: "The london underground", description: "Explore for hours")
-Site.create(name: "museum of fine arts", description: "Cool art bro.")
+Site.create(name: "The Eiffel Tower", description: "Really tall", location_id: orlando.id)
+Site.create(name: "The great library", description: "Lots of readin to do", location_id: sydney.id)
+Site.create(name: "The london underground", description: "Explore for hours", location_id: london.id)
+Site.create(name: "museum of fine arts", description: "Cool art bro.", location_id: paris.id)
 
 Restaurant.create(name: "Pluchers", foodTypes: "Wings", address: "540 new York St, Houston, NY 23512", hours: "7am - 9pm", popularFoods: "Wings")
 Restaurant.create(name: "BBQ", foodTypes: "Meat", address: "540 Origin St, Houston, OR 77002", hours: "7am - 9pm", popularFoods: "NA")

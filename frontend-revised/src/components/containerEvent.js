@@ -5,7 +5,7 @@ class ContainerEvent extends Component {
   render() {
     return (
       <div>
-        <p>all events</p>
+        <p>name</p>
         <button>add event</button>
         <Event />
       </div>
