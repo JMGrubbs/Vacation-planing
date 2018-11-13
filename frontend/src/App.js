@@ -64,11 +64,25 @@ class App extends Component {
     this.setState({ vacation });
   };
 
+  deleteVacationSite = site => {
+    let vacation = this.state.vacation;
+    const index = vacation.sites.indexOf(site);
+    vacation.sites.splice(index, 1);
+    this.setState({ vacation })
+  }
+
   changeVacationEvents = e => {
     let vacation = this.state.vacation;
     vacation.events.push(e);
     this.setState({ vacation });
   };
+
+  deleteVacationEvent = e => {
+    let vacation = this.state.vacation;
+    const index = vacation.events.indexOf(e);
+    vacation.events.splice(index, 1);
+    this.setState({ vacation })
+  }
 
   saveVacation = () => {
     const data = {
@@ -93,7 +107,7 @@ class App extends Component {
     fetch(`${URL}/users`)
       .then(resp => resp.json())
       .then(data =>
-        data.map(user => {
+        data.forEach(user => {
           if (user.firstname === username) {
             this.setState({
               loginUser: {
@@ -165,8 +179,11 @@ class App extends Component {
           location={this.state.currentLocation}
           events={this.state.events}
           sites={this.state.sites}
+          vacation={this.state.vacation}
           changeVacationSites={this.changeVacationSites}
+          deleteVacationSite={this.deleteVacationSite}
           changeVacationEvents={this.changeVacationEvents}
+          deleteVacationEvent={this.deleteVacationEvent}
           saveVacation={this.saveVacation}
           toggleRender={this.toggleRender}
         />

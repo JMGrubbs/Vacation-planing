@@ -16,13 +16,25 @@ class EventsAndSites extends Component {
         <div>
             <h1>EVENTS</h1>
             {locationEvents.map(e => {
-                return <EventContainer key={e.id} e={e} changeVacationEvents={this.props.changeVacationEvents}/>
+                return <EventContainer
+                    key={e.id}
+                    e={e}
+                    vacationEvents={this.props.vacation.events}
+                    changeVacationEvents={this.props.changeVacationEvents}
+                    deleteVacationEvent={this.props.deleteVacationEvent}
+                />
             })}
             <br />
             <br />
             <h1>TOURIST SITES</h1>
             {locationSites.map(site => {
-                return <SiteContainer key={site.id} site={site} changeVacationSites={this.props.changeVacationSites}/>
+                return <SiteContainer
+                    key={site.id}
+                    site={site}
+                    vacationSites={this.props.vacation.sites}
+                    changeVacationSites={this.props.changeVacationSites}
+                    deleteVacationSite={this.props.deleteVacationSite}
+                />
             })}
             <br />
             <br />
