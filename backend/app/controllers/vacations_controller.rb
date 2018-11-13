@@ -1,12 +1,18 @@
 class VacationsController < ApplicationController
     before_action :find_vacation, only: [:update]
+    wrap_parameters false
     def index
       @vacations = Vacation.all
       render json: @vacations
     end
 
     def create
-      @vacation = Vacation.create(name: params[:name], location_id: params[:location_id])
+      @vacation = Vacation.create(
+        name: params[:name],
+        location_id: params[:location_id],
+        events: params[:events],
+        sites: params[:sites]
+      )
       render json: @vacation
     end
 
@@ -27,7 +33,7 @@ class VacationsController < ApplicationController
     private
   
     def vacation_params
-      params.require(:vacation).permit(:name, :location_id)
+      params.require(:vacation).permit(:name, :location_id, :events, :sites)
     end
   
     def find_vacation

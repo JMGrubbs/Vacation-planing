@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "../App.css";
 
 class SiteContainer extends Component {
@@ -13,4 +13,4 @@ class SiteContainer extends Component {
     }
 }
 
-export default SiteContainer
+export default SiteContainer;

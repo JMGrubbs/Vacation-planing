@@ -13,7 +13,7 @@ class App extends Component {
     sites: [],
     currentLocation: {},
     vacation: {
-      location: null,
+      location_id: null,
       events: "",
       sites: ""
     }
@@ -45,7 +45,7 @@ class App extends Component {
 
   changeVacationLocation = id => {
     let vacation = this.state.vacation;
-    vacation.location = id;
+    vacation.location_id = id;
     this.setState({ vacation })
   }
 
@@ -55,15 +55,20 @@ class App extends Component {
     this.setState({ vacation })
   }
 
-  changeVacationEvents = event => {
+  changeVacationEvents = e => {
     let vacation = this.state.vacation;
-    vacation.events += ` ${event}`;
+    vacation.events += ` ${e}`;
     this.setState({ vacation })
   }
 
   saveVacation = () => {
-    const data = this.state.vacation
-
+    const data = {
+      name: "Some shitty vacation",
+      location_id: this.state.vacation.location_id,
+      events: this.state.vacation.events,
+      sites: this.state.vacation.sites
+    };
+    console.log(data)
     fetch(`${URL}/vacations`, {
       method: "POST",
       headers: {
@@ -107,6 +112,7 @@ class App extends Component {
           changeVacationSites={this.changeVacationSites}
           changeVacationEvents={this.changeVacationEvents}
           saveVacation={this.saveVacation}
+          toggleRender={this.toggleRender}
         />
       )
     }

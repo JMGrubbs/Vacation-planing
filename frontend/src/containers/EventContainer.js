@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "../App.css";
 
 class EventContainer extends Component {
@@ -13,4 +13,4 @@ class EventContainer extends Component {
     }
 }
 
-export default EventContainer
+export default EventContainer;
