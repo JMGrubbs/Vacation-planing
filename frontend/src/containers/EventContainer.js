@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import "../App.css";
 
 class EventContainer extends Component {
-    state = {
-        clicked: false
-    }
     
     render() {
         return(
             <div>
                 <h3>{this.props.e.name}</h3>
                 <p>{this.props.e.description}</p>
-                <button onClick={() => this.props.changeVacationEvents(this.props.e.name)}>Add to your vacation</button>
+                {this.props.vacationEvents.includes(this.props.e.name)
+                ? <button onClick={() => this.props.deleteVacationEvent(this.props.e.name)}>Remove from your vacation</button>
+                : <button onClick={() => this.props.changeVacationEvents(this.props.e.name)}>Add to your vacation</button>}
             </div>
         )
     }

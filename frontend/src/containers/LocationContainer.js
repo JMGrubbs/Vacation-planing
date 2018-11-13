@@ -8,7 +8,6 @@ class LocationContainer extends Component {
   render() {
     return (
       <div onClick={() => this.props.changeLocation(this.props.location)}>
-        {/* <button onClick={this.toggleRender}>Profile</button> */}
         <p>{this.props.location.name}</p>
         <img alt="oh no, i broke" src={this.props.location.image} />
       </div>
