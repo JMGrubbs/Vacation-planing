@@ -5,10 +5,18 @@ class UsersController < ApplicationController
       render json: @users
     end
 
-  def show
-    @user = User.find(params[:id])
-    render json: @user
-  end
+    def show
+      @user = User.find(params[:id])
+      render json: @user
+    end
+
+    def create
+      @vacation = Vacation.create(
+        firstname: params[:firstname],
+        lastname: params[:lastname],
+      )
+      render json: @vacation
+    end
 
     def update
       @user.update(user_params)
@@ -22,7 +30,7 @@ class UsersController < ApplicationController
     private
   
     def user_params
-      params.permit(:firstname, :lastname, :groupsize, :address)
+      params.permit(:firstname, :lastname)
     end
   
     def find_user

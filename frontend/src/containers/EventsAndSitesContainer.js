@@ -13,24 +13,38 @@ class EventsAndSites extends Component {
     });
 
     return (
-        <div>
-            <h1>EVENTS</h1>
-            {locationEvents.map(e => {
-                return <EventContainer e={e} changeVacationEvents={this.props.changeVacationEvents}/>
-            })}
-            <br />
-            <br />
-            <h1>TOURIST SITES</h1>
-            {locationSites.map(site => {
-                return <SiteContainer site={site} changeVacationSites={this.props.changeVacationSites}/>
-            })}
-            <br />
-            <br />
-            <button onClick={this.props.saveVacation}>Save Your Vacation</button>
-            <button onClick={() => this.props.toggleRender("location")}>Go Back</button>
-        </div>
-    )
-    }
+      <div>
+        <h1>EVENTS</h1>
+        {locationEvents.map(e => {
+          return (
+            <EventContainer
+              key={e.id}
+              e={e}
+              changeVacationEvents={this.props.changeVacationEvents}
+            />
+          );
+        })}
+        <br />
+        <br />
+        <h1>TOURIST SITES</h1>
+        {locationSites.map(site => {
+          return (
+            <SiteContainer
+              key={site.id}
+              site={site}
+              changeVacationSites={this.props.changeVacationSites}
+            />
+          );
+        })}
+        <br />
+        <br />
+        <button onClick={this.props.saveVacation}>Save Your Vacation</button>
+        <button onClick={() => this.props.toggleRender("location")}>
+          Go Back
+        </button>
+      </div>
+    );
+  }
 }
 
 export default EventsAndSites;
