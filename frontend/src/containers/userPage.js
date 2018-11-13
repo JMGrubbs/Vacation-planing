@@ -25,8 +25,8 @@ class User extends Component {
         <h2>
           <li>{this.props.vacation.location_name}</li>
         </h2>
-        <li>{this.props.vacation.events}</li>
-        <li>{this.props.vacation.sites}</li>
+        <li>{this.props.vacation.events.join(", ")}</li>
+        <li>{this.props.vacation.sites.join(",  ")}</li>
         <br />
         <br />
         <br />
