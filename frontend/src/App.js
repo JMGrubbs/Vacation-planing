@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import LocationsPage from "./containers/LocationsPage"
 import LocationPage from "./containers/LocationPage"
-import "./App.css";
 import EventsAndSites from "./containers/EventsAndSitesContainer";
+import "./App.css";
 const URL = "http://localhost:3000"
 
 class App extends Component {
@@ -49,7 +49,33 @@ class App extends Component {
     this.setState({ vacation })
   }
 
+  changeVacationSites = site => {
+    let vacation = this.state.vacation;
+    vacation.sites += ` ${site}`;
+    this.setState({ vacation })
+  }
+
+  changeVacationEvents = event => {
+    let vacation = this.state.vacation;
+    vacation.events += ` ${event}`;
+    this.setState({ vacation })
+  }
+
+  saveVacation = () => {
+    const data = this.state.vacation
+
+    fetch(`${URL}/vacations`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+  }
+
   render() {
+    console.log(this.state.vacation)
     if (this.state.render === "default") {
       return (
         <div className="container">
@@ -77,7 +103,10 @@ class App extends Component {
         <EventsAndSites
           location={this.state.currentLocation}
           events={this.state.events}
-          sites={this.state.sites} 
+          sites={this.state.sites}
+          changeVacationSites={this.changeVacationSites}
+          changeVacationEvents={this.changeVacationEvents}
+          saveVacation={this.saveVacation}
         />
       )
     }

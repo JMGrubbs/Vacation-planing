@@ -14,13 +14,21 @@ class EventsAndSites extends Component {
         })
 
         return(
-            locationEvents.map(e => {
-                return <EventContainer e={e} />
-            })
-
-            locationSites.map(site => {
-                return <SiteContainer site={site} />
-            })
+            <div>
+                <h1>EVENTS</h1>
+                {locationEvents.map(e => {
+                    return <EventContainer e={e} changeVacationEvents={this.props.changeVacationEvents}/>
+                })}
+                <br />
+                <br />
+                <h1>TOURIST SITES</h1>
+                {locationSites.map(site => {
+                    return <SiteContainer site={site} changeVacationSites={this.props.changeVacationSites}/>
+                })}
+                <br />
+                <br />
+                <button onClick={() => this.props.saveVacation}>Save Your Vacation</button>
+            </div>
         )
     }
 }
