@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "../App.css";
 
 class EventContainer extends Component {
+    state = {
+        clicked: false
+    }
+    
     render() {
         return(
             <div>

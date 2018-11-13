@@ -14,8 +14,8 @@ class App extends Component {
     currentLocation: {},
     vacation: {
       location_id: null,
-      events: "",
-      sites: ""
+      events: [],
+      sites: []
     }
   }
 
@@ -51,13 +51,13 @@ class App extends Component {
 
   changeVacationSites = site => {
     let vacation = this.state.vacation;
-    vacation.sites += ` ${site}`;
+    vacation.sites.push(site);
     this.setState({ vacation })
   }
 
   changeVacationEvents = e => {
     let vacation = this.state.vacation;
-    vacation.events += ` ${e}`;
+    vacation.events.push(e);
     this.setState({ vacation })
   }
 
@@ -65,8 +65,8 @@ class App extends Component {
     const data = {
       name: "Some shitty vacation",
       location_id: this.state.vacation.location_id,
-      events: this.state.vacation.events,
-      sites: this.state.vacation.sites
+      events: this.state.vacation.events.join(", "),
+      sites: this.state.vacation.sites.join(", ")
     };
     console.log(data)
     fetch(`${URL}/vacations`, {
@@ -78,6 +78,17 @@ class App extends Component {
       body: JSON.stringify(data)
     })
   }
+
+  clearVacation = () => {
+    this.setState({
+      vacation: {
+        location_id: null,
+        events: "",
+        sites: ""
+      }
+    });
+    this.toggleRender("location");
+  } 
 
   render() {
     console.log(this.state.vacation)
@@ -112,6 +123,7 @@ class App extends Component {
           changeVacationSites={this.changeVacationSites}
           changeVacationEvents={this.changeVacationEvents}
           saveVacation={this.saveVacation}
+          clearVacation={this.clearVacation}
           toggleRender={this.toggleRender}
         />
       )
