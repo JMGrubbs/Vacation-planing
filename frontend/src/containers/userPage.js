@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
+import Event from "./Event";
+import Site from "./Site";
 
 class User extends Component {
   toggleRender = () => {
@@ -7,7 +9,7 @@ class User extends Component {
   };
 
   clearVacation = () => {
-    this.props.clearVacation()
+    this.props.clearVacation();
   };
 
   render() {
@@ -22,11 +24,17 @@ class User extends Component {
         <button onClick={this.clearVacation}>Plan New Vacation</button>
         <button onClick={this.toggleRender}>Edit Vacation</button>
         <h3>New Vacation</h3>
-        <h2>
-          <li>{this.props.vacation.location_name}</li>
-        </h2>
-        <li>{this.props.vacation.events}</li>
-        <li>{this.props.vacation.sites}</li>
+        <h2>{this.props.vacation.location_name}</h2>
+        <h3>Vacation Sites</h3>
+        {this.props.vacation.sites.map(site => {
+          return <Site key={Math.floor(Math.random * 100000)} site={site} />;
+        })}
+        <h3>Vacation Events</h3>
+        {this.props.vacation.events.map(event => {
+          return (
+            <Event key={Math.floor(Math.random * 1000000)} event={event} />
+          );
+        })}
         <br />
         <br />
         <br />
