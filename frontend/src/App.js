@@ -61,15 +61,14 @@ class App extends Component {
   changeVacationSites = site => {
     let vacation = this.state.vacation;
     vacation.sites.push(site);
-    this.setState({ vacation })
-  }
+    this.setState({ vacation });
+  };
 
   changeVacationEvents = e => {
     let vacation = this.state.vacation;
-    console.log(vacation)
     vacation.events.push(e);
-    this.setState({ vacation })
-  }
+    this.setState({ vacation });
+  };
 
   saveVacation = () => {
     const data = {
@@ -79,7 +78,6 @@ class App extends Component {
       events: this.state.vacation.events.join(", "),
       sites: this.state.vacation.sites.join(", ")
     };
-    console.log(data);
     fetch(`${URL}/vacations`, {
       method: "POST",
       headers: {
@@ -120,10 +118,17 @@ class App extends Component {
       }
     });
     this.toggleRender("locations");
-  } 
+  };
+  clearSitesandEvents = () => {
+    console.log("Thing");
+    let vacation = this.state.vacation;
+    vacation.events = [];
+    vacation.sites = [];
+    console.log(vacation);
+    this.setState({ vacation });
+  };
 
   render() {
-    console.log(this.state.currentLocation)
     if (this.state.render === "default") {
       return (
         <div className="container">
@@ -151,6 +156,7 @@ class App extends Component {
           changeVacationLocation={this.changeVacationLocation}
           toggleRender={this.toggleRender}
           clearVacation={this.clearVacation}
+          clearSitesandEvents={this.clearSitesandEvents}
         />
       );
     } else if (this.state.render === "events-and-sites") {
