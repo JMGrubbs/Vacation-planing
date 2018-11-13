@@ -64,16 +64,16 @@ class App extends Component {
     this.setState({ vacation });
   };
 
+  changeVacationEvents = e => {
+    let vacation = this.state.vacation;
+    vacation.events.push(e);
+    this.setState({ vacation });
+  };
+
   deleteVacationSite = site => {
     let vacation = this.state.vacation;
     const index = vacation.sites.indexOf(site);
     vacation.sites.splice(index, 1);
-    this.setState({ vacation })
-  }
-
-  changeVacationEvents = e => {
-    let vacation = this.state.vacation;
-    vacation.events.push(e);
     this.setState({ vacation });
   };
 
@@ -81,8 +81,8 @@ class App extends Component {
     let vacation = this.state.vacation;
     const index = vacation.events.indexOf(e);
     vacation.events.splice(index, 1);
-    this.setState({ vacation })
-  }
+    this.setState({ vacation });
+  };
 
   saveVacation = () => {
     const data = {
@@ -134,11 +134,9 @@ class App extends Component {
     this.toggleRender("locations");
   };
   clearSitesandEvents = () => {
-    console.log("Thing");
     let vacation = this.state.vacation;
     vacation.events = [];
     vacation.sites = [];
-    console.log(vacation);
     this.setState({ vacation });
   };
 
@@ -195,6 +193,8 @@ class App extends Component {
           toggleRender={this.toggleRender}
           user={this.state.loginUser}
           clearVacation={this.clearVacation}
+          deleteVacationEvent={this.deleteVacationEvent}
+          deleteVacationSite={this.deleteVacationSite}
         />
       );
     }

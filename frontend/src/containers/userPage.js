@@ -27,12 +27,22 @@ class User extends Component {
         <h2>{this.props.vacation.location_name}</h2>
         <h3>Vacation Sites</h3>
         {this.props.vacation.sites.map(site => {
-          return <Site key={Math.floor(Math.random * 100000)} site={site} />;
+          return (
+            <Site
+              deleteVacationSite={this.props.deleteVacationSite}
+              key={Math.floor(Math.random * 100000)}
+              site={site}
+            />
+          );
         })}
         <h3>Vacation Events</h3>
         {this.props.vacation.events.map(event => {
           return (
-            <Event key={Math.floor(Math.random * 1000000)} event={event} />
+            <Event
+              deleteVacationEvent={this.props.deleteVacationEvent}
+              key={Math.floor(Math.random * 1000000)}
+              event={event}
+            />
           );
         })}
         <br />
