@@ -27,7 +27,7 @@ class EventsAndSites extends Component {
             <br />
             <br />
             <button onClick={this.props.saveVacation}>Save Your Vacation</button>
-            <button onClick={this.props.clearVacation}>Go Back</button>
+            <button onClick={() => this.props.toggleRender("location")}>Go Back</button>
         </div>
     )
     }

@@ -48,11 +48,11 @@ Vacation.create(name: "To London")
 Vacation.create(name: "To Paris")
 Vacation.create(name: "To Kansas")
 
-User.create(firstname: "John", lastname: "Doe", groupsize: 5, address: "TX")
-User.create(firstname: "Jane", lastname: "Doe", groupsize: 2, address: "NY")
-User.create(firstname: "Jordan", lastname: "Doe", groupsize: 7, address: "CA")
-User.create(firstname: "Kim", lastname: "Doe", groupsize: 1, address: "MO")
-User.create(firstname: "Nick", lastname: "Doe", groupsize: 2, address: "KS")
+User.create(firstname: "John", lastname: "Doe")
+User.create(firstname: "Jane", lastname: "Doe")
+User.create(firstname: "Jordan", lastname: "Doe")
+User.create(firstname: "Kim", lastname: "Doe")
+User.create(firstname: "Nick", lastname: "Doe")
 
 Hotel.create(
     name: "Magic Hotel",
@@ -161,13 +161,9 @@ Site.create(
 User.create(
     firstname: "Graham",
     lastname: "Watson",
-    groupsize: 5,
-    address: "123 Fake St, Houston, TX 77001"
 )
 
 User.create(
     firstname: "John",
     lastname: "Grubbs",
-    groupsize: 14,
-    address: "345 Fake St, Houston, TX 77001"
 )
