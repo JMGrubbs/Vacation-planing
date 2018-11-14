@@ -11,11 +11,10 @@ class UsersController < ApplicationController
     end
 
     def create
-      @vacation = Vacation.create(
-        firstname: params[:firstname],
-        lastname: params[:lastname],
+      @user = User.create(
+        username: params[:username]
       )
-      render json: @vacation
+      render json: @user
     end
 
     def update
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
     private
   
     def user_params
-      params.permit(:firstname, :lastname)
+      params.permit(:username)
     end
   
     def find_user

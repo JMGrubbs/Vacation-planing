@@ -37,11 +37,9 @@ class User extends Component {
   render() {
     return (
       <div>
+        <button onClick={() => this.props.toggleRender("default")}>Log Out</button>
         <h1>User Profile</h1>
-        <h2>{this.props.user.firstname}</h2>
-        <h3>{this.props.user.lastname}</h3>
-        <br />
-        <br />
+        <h2>{this.props.username}</h2>
         <br />
         <button onClick={this.clearVacation}>Plan New Vacation</button>
         <button onClick={this.toggleRender}>Edit Vacation</button>

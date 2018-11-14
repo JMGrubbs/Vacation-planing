@@ -10,9 +10,10 @@ class App extends Component {
   state = {
     allUserVacations: [],
     allVacations: [],
+    users: [],
+    username: "",
     loginUser: {
-      firstname: "",
-      lastname: "",
+      username: "",
       id: null
     },
     render: "default",
@@ -44,6 +45,10 @@ class App extends Component {
     fetch(`${URL}/vacations`)
       .then(resp => resp.json())
       .then(allVacations => this.setState({ allVacations }));
+
+      fetch(`${URL}/users`)
+      .then(resp => resp.json())
+      .then(users => this.setState({ users }));
   }
 
   toggleRender = page => {
@@ -115,25 +120,54 @@ class App extends Component {
     });
   };
 
-  loginUser = event => {
-    let username = event.target.parentElement.children[2].value;
-    fetch(`${URL}/users`)
-      .then(resp => resp.json())
-      .then(data =>
-        data.forEach(user => {
-          if (user.firstname === username) {
-            this.setState({
-              loginUser: {
-                firstname: user.firstname,
-                lastname: user.lastname,
-                id: user.id
-              },
-              render: "userPage"
-            });
-          }
-        })
-      );
-  };
+  loginUser = username => {
+    const user = this.state.users.filter(u => {
+      return u.username === username;
+    })
+
+    this.setState({ 
+      loginUser: {
+        username: username,
+        id: user[0].id
+      },
+      render: "userPage"
+    });
+  }
+
+  createUser = username => {
+    fetch(`${URL}/users`, {
+      method: "POST",
+      body: JSON.stringify({username: username}),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+    .then(resp => resp.json())
+    .then(user => this.setState({ loginUser: 
+      {
+        username: user.username,
+        id: user.id
+      },
+      render: "userPage"
+    }))
+  }
+
+  handleUsernameChange = event => {
+    this.setState({ username: event.target.value })
+  }
+
+  createOrLoginUser = username => {
+    let usernames = this.state.users.map(user => {
+      return user.username;
+    })
+
+    if (usernames.includes(username)) {
+      this.loginUser(username);
+    } else {
+      this.createUser(username);
+    }
+  }
 
   clearVacation = () => {
     this.setState({
@@ -155,12 +189,13 @@ class App extends Component {
 
   render() {
     if (this.state.render === "default") {
+      const username = this.state.username;
       return (
         <div className="container">
           <h1>Welcome to my-react-app!</h1>
           <h3>Login</h3>
-          <input className="username" placeholder="username" />
-          <button onClick={this.loginUser}>Login</button>
+          <input className="username" onChange={this.handleUsernameChange} placeholder="username" />
+          <button onClick={() => this.createOrLoginUser(username)}>Login</button>
         </div>
       );
     } else if (this.state.render === "locations") {
@@ -205,7 +240,7 @@ class App extends Component {
         <User
           vacation={this.state.vacation}
           toggleRender={this.toggleRender}
-          user={this.state.loginUser}
+          username={this.state.username}
           clearVacation={this.clearVacation}
           saveVacation={this.saveVacation}
           deleteVacationEvent={this.deleteVacationEvent}

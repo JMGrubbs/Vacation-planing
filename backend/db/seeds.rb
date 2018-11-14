@@ -5,6 +5,10 @@ Restaurant.destroy_all
 User.destroy_all
 Vacation.destroy_all
 
+User.create(
+    username: "grahamwatson"
+)
+
 orlando = Location.create(name: "Orlando", image: "https://media1.s-nbcnews.com/i/newscms/2015_34/745376/orlando-staycation-tease-today-150822_dd1ed0a3cbdb9d5615796851572a2dc9.jpg", description: "Orlando, Florida was once a small cattle town with no more than 200 inhabitants. Now it is the family entertainment capital of the world and this planet's most popular vacation spot.   It would take several holidays to experience all that this fabulous place has to offer and there is literally something to suit every taste and age group. A hugely popular family holiday destination, this is Florida's entertainment capital, where the theme parks are unsurpassed by anything on earth.  Almost everywhere you go in Orlando, reality takes a back seat and full-blown fantasy is there in its place. Nothing is quite what it seems.   Not recommended for anyone looking for peace, quiet or restrained good taste, Orlando is ideal for thrill-seekers, and those who thrive on plenty of activity and entertainment. The area is extremely well catered for families and couples of all ages.")
 sydney = Location.create(name: "Sydney", image: "https://nomadsworld.com/wp-content/uploads/2017/08/sydney_opera_house_istock.jpg", description: "Situated on the E coast, in the region of New South Wales, Sydney is Australia's oldest, largest and most diverse city. Located in the centre of Sydney is the dazzling Sydney Harbour with its iconic Sydney Harbour Bridge and Sydney Opera House. The city has no shortage of lazy bays and legendary surf beaches but Sydney is an adventure playground on the grandest scale with no shortage of activities. There's the Bondi surf, sailing under the Harbour Bridge on a yacht, jogging along the Coogee cliff tops or rampaging through Centennial Park on horseback. Everybody seems to enjoy the outdoors with swarming beaches, buzzing street cafés and the harbour is always blooming with a variety of sails. Sydney's location gives it a temperate, sunny climate with average maximum temperatures range from 17 degrees Celsius in winter (June-August) to 27 degrees Celsius in summer (December-February).  Sydney's population is approaching five million, but it is easy to leave the frenetic urban pace behind with just a simple ferry ride to the North Shore for a bush walk, enjoy a stroll along the harbour beaches or take any one of a number of daytrips to explore the 'real' Australia on the doorstep.   Sydney is a dynamic city and visitors love its verve and vibrancy, its beautiful harbour and myriad waterways. From sailboats and ferry rides to fine dining at a harbourside restaurant or outdoor cafe, the soul of Sydney is the harbour. The city is also a wonderful base for touring the New South Wales countryside and beyond the city there are friendly country towns, national parks filled with extraordinary flora and fauna, and beautiful beaches up and down the coast.")
 london = Location.create(name: "London", image: "https://www.foodbytesworld.com/wp-content/uploads/2018/04/London-2018.jpg", description: "London is the capital of England, and has something to offer everyone - majestic stately houses, tranquil green parks and a zoo, engrossing museums and art galleries and bustling shopping centres with all the major stores, specialist shops and markets.   The Royal Family have their main residence in London, at Buckingham Palace , but there are many other interesting houses to visit within London with Royal connections - Hampton Court Palace , The Tower of London , and Regents Park, an ancient Royal hunting park.   London has a strong maritime tradition, and the docklands on the Thames are undergoing a transformation from empty warehouses to smart city offices and homes. You can learn all about London's Naval history at The National Maritime Museum in Greenwich, and aboard the Cutty Sark and HMS Belfast . Greenwich is also home to the Old Royal Observatory, which lies on the meridian line that divides the world into East and West, and where Greenwich Mean Time originates.   The city is divided by the river Thames, which meanders through central London, splitting it into northern and southern halves. The central area and the most important sights, theatres and restaurants are within the Underground's Circle Line on the north bank of the river.   The trendy and tourist-ridden West End lies within the western portion of the loop and includes Soho, Trafalgar Square, Piccadilly Circus, Leicester Square and Regent St. The East End, so beloved of Ealing comedies, lies east of the Circle Line; it used to be the exclusive preserve of the Cockney but is now a cultural melting pot.  There are interesting 
@@ -27,143 +31,242 @@ san_diego = Location.create(name: "San Diego", image: "https://az616578.vo.msecn
 san_francisco = Location.create(name: "San Francisco", image: "https://www.vizts.com/wp-content/uploads/2018/03/San-Francisco-is-California-1.jpg", description: "San Francisco is a unique city, much loved by visitors, who return frequently to take in the myriad pleasures of the 'city by the bay' With more than 3,500 restaurants and drinking establishments and an estimated 30,000-plus hotel rooms, visitors are in tourist paradise. Arguable the most attractive of American cities and regularly voted the best city in the USA, San Francisco is adored because of its colourful history, dramatic setting and its laissez-faire atmosphere, a quality missing from synthetic Los Angeles. San Francisco began life as a feisty frontier town, and little has changed in 150 years. The city only occupies 47 hilly square miles of California, but it captivates the world. It is a regular trendsetter in everything alternative, from flower-power to 'free love' and gay liberation; it prides itself on being individualistic, down-to-earth and cultured.")
 
 
-Event.create(name: "The Music festival", description: "All the music", location_id: orlando.id)
-Event.create(name: "Art", description: "Look at these great pieces", location_id: sydney.id)
-Event.create(name: "Hot dog eating", description: "See how many hotdogs you can eat", location_id: london.id)
-Event.create(name: "Water Park", description: "Have some fun in the sun.", location_id: paris.id)
-
-Site.create(name: "The Eiffel Tower", description: "Really tall", location_id: paris.id)
-Site.create(name: "Sydney Opera House", description: "Fat people yellin'", location_id: sydney.id)
-Site.create(name: "The London Underground", description: "Explore for hours", location_id: london.id)
-Site.create(name: "Museum of Fine Arts", description: "Cool art bro.", location_id: orlando.id)
-
-Restaurant.create(name: "Pluchers", foodTypes: "Wings", address: "540 new York St, Houston, NY 23512", hours: "7am - 9pm", popularFoods: "Wings")
-Restaurant.create(name: "BBQ", foodTypes: "Meat", address: "540 Origin St, Houston, OR 77002", hours: "7am - 9pm", popularFoods: "NA")
-Restaurant.create(name: "Chinese", foodTypes: "Chinese", address: "540 Kansas St, Houston, MO 82742", hours: "7am - 9pm", popularFoods: "NA")
-Restaurant.create(name: "Mexican", foodTypes: "Mecican", address: "540 paris St, Houston, Paris 65887", hours: "7am - 9pm", popularFoods: "NA")
-Restaurant.create(name: "Little Napoli Italian Cuisine", foodTypes: "Pasta", address: "540 Cali St, Houston, CA 27482", hours: "7am - 9pm", popularFoods: "Pasta")
-
-Vacation.create(name: "To NY")
-Vacation.create(name: "To London")
-Vacation.create(name: "To Paris")
-Vacation.create(name: "To Kansas")
-
-User.create(firstname: "Jon", lastname: "Doe")
-User.create(firstname: "Jane", lastname: "Doe")
-User.create(firstname: "Jordan", lastname: "Doe")
-User.create(firstname: "Kim", lastname: "Doe")
-User.create(firstname: "Nick", lastname: "Doe")
-
-Hotel.create(
-    name: "Magic Hotel",
-    pool: true,
-    meals: "Bread crust and gruel",
-    rating: 2,
-    address: "123 Magic St, Orlando, FL 12345"
-)
-
-Hotel.create(
-    name: "LeBron Hotel",
-    pool: false,
-    meals: "Breakfast, Lunch, and Dinner",
-    rating: 5,
-    address: "123 Ohio St, Cleveland, OH 23456"
-)
-
-Hotel.create(
-    name: "Royal Hotel",
-    pool: true,
-    meals: "Breakfast",
-    rating: 4,
-    address: "123 Imperialism St, London, UK SE1 7PB"
-)
-
-Hotel.create(
-    name: "Waifu Hotel",
-    pool: false,
-    meals: "Breakfast and Lunch",
-    rating: 3,
-    address: "123 Bodypillow St, Tokyo, 160-0022"
-)
-
-Restaurant.create(
-    name: "Mickey's Grill",
-    foodTypes: "American",
-    address: "321 Magic St, Orlando, FL 12345",
-    hours: "9am - 11pm",
-    popularFoods: "Hamburger"
-)
-
-Restaurant.create(
-    name: "Boring Cafe",
-    foodTypes: "Canadian-Bolivian Fusion",
-    address: "321 Ohio St, Cleveland, OH 23456",
-    hours: "9am - 11pm",
-    popularFoods: "Ceviche Poutine"
-)
-
-Restaurant.create(
-    name: "Ye Olde Her Majesty's God Save The Queen Pub",
-    foodTypes: "Unamerican",
-    address: "123 Imperialism St, London, UK SE1 7PB",
-    hours: "9am - 11pm",
-    popularFoods: "Fish and Chips"
-)
-
-Restaurant.create(
-    name: "日本語の文章",
-    foodTypes: "Japanese",
-    address: "321 Bodypillow St, Tokyo, 160-0022",
-    hours: "9am - 11pm",
-    popularFoods: "Sushi"
-)
-
 Event.create(
     name: "2018 Epcot International Food & Wine Festival",
-    description: "A Spectacular Celebration of Global Cuisines, Music & More"
+    description: "A Spectacular Celebration of Global Cuisines, Music & More",
+    location_id: orlando.id
 )
 
 Event.create(
     name: "Toddler Storytime",
-    description: "Join us for rhymes, songs, fingerplays and stories. For caregivers and their children ages 19-35 months."
+    description: "Join us for rhymes, songs, fingerplays and stories. For caregivers and their children ages 19-35 months.",
+    location_id: orlando.id
+)
+
+Event.create(
+    name: "Bach Festival",
+    description: "Greater Orlando's Bach Festival on the Rollins College campus, and first held in 1935, hails the birth of composer Johann Sebastian Bach.",
+    location_id: orlando.id
+)
+
+Event.create(
+    name: "GeorgeFest - Washington's Birthday Festival",
+    description: "Over the weekend following Washington's birthday, the town of Eustis hosts a festival featuring patriotic programs, a parade, fireworks, children's activities, food and crafts vendors, and live family entertainment all weekend along Lake Eustis in historic downtown's Ferran Park.",
+    location_id: orlando.id
+)
+
+Event.create(
+    name: "Florida Film Festival",
+    description: "Right after Sundance and leading into Cannes, this film extravaganza unfolds every March in Orlando in and around the Enzian Theatre, now running well into its second decade.",
+    location_id: orlando.id
 )
 
 Event.create(
     name: "EFG London Jazz Festival",
-    description: "Fix your ears on the festival’s usual mixture of jazz masters flexing their chops, cutting-edge young bands making a stir, international legends and a wealth of fresh new music from emerging British stars. Follow the music wherever it takes you – a late night hang is recommended – and wake up with the buzz of last night’s fun in your head."
+    description: "Fix your ears on the festival’s usual mixture of jazz masters flexing their chops, cutting-edge young bands making a stir, international legends and a wealth of fresh new music from emerging British stars. Follow the music wherever it takes you – a late night hang is recommended – and wake up with the buzz of last night’s fun in your head.",
+    location_id: london.id
 )
 
 Event.create(
-    name: "Niku Fes Tachikawa",
-    description: "Niku is the Japanese word for “meat”—and a lot of it is what you can expect at this festival. Meat dishes from Japan and abroad will be served up in every form imaginable: kebabs, hot dogs, steak, roast pork, xiaolongbao, and much more."
+    name: "The Boat Race",
+    description: "An annual rowing race between the Oxford University Boat Club and the Cambridge University Boat Club, rowed between men's and women's open-weight eights on the River Thames in London, England.",
+    location_id: london.id
+)
+
+Event.create(
+    name: "World Naked Bike Ride",
+    description: "It's naked people. On bikes. Can you even imagine the potential road rash?",
+    location_id: london.id
+)
+
+Event.create(
+    name: "Hampton Court Palace Flower Show",
+    description: "The Hampton Court Palace Flower Show is the largest flower show in the world. The Show is held in early July, and run by the Royal Horticultural Society (RHS) at Hampton Court Palace in southwest London. The show features show gardens, floral marquees and pavilions, talks and demonstrations.",
+    location_id: london.id
+)
+
+Event.create(
+    name: "Million Mask March",
+    description: "The Million Mask March, also known as the Million Mask Movement is a worldwide, annual protest associated with the hacktivist group Anonymous occurring annually on Guy Fawkes Day, 5th of November. The motive for the March varies, but includes some consistent themes prevalent in the Anonymous movement, including: corruption in politics, demilitarization, police violence, and self-governance.",
+    location_id: london.id
+)
+
+Event.create(
+    name: "Sydney Cellar Door",
+    description: "A chance to get some of your friends together and sample the best wines, cheeses and small goods that New South Wales has to offer. Hyde Park makes the way for a perfect locale with quality musical entertainment.",
+    location_id: sydney.id
+)
+
+Event.create(
+    name: "Sydney Harbour Regatta",
+    description: "Like the Sydney to Hobart yacht race that begins on a boxing day of any given calendar year, the Sydney Harbour Regatta in March is an iconic annual Sydney event that showcases over 300 yachts spanning around 2500 yacht crew.",
+    location_id: sydney.id
+)
+
+Event.create(
+    name: "Vivid Sydney",
+    description: "A musical festival with bright lights and creative ideas. The entire city will come to life from late May to mid June every year.",
+    location_id: sydney.id
+)
+
+Event.create(
+    name: "Crave International Food Festival",
+    description: "Every October, the night noodle market from 5pm ensures that Hyde Park is swamped with Sydneysiders suddenly allergic to their own cooking. The peking duck is just sensational and the Crave International Food Festival Coopers Beer Garden is a great relaxation oasis.",
+    location_id: sydney.id
+)
+
+Event.create(
+    name: "Carols In the Domain",
+    description: "The hit for the children is always The Wiggles. There is great entertainment with the chance to sing along to your favourite Christmas carols.",
+    location_id: sydney.id
+)
+
+Event.create(
+    name: "Circus of Tomorrow Fair",
+    description: "Before they go on to fame in Cirque du Soleil, the world's most talented young circus performers and acrobats compete for glory at Paris' Circus of Tomorrow Festival (Cirque de Demain). Performers come from all over the world to show off their skills in the spirit of friendly competition but make no mistake - this is first and foremost, a proving ground, with many big name acts in the audience, scouting around for new talent.",
+    location_id: paris.id
+)
+
+Event.create(
+    name: "Antique Books Fair",
+    description: "This flea market - come - garage sale in the 5th arrondissement, near the Panthéon is where ordinary folk and vendors alike set up tables, and stalls to sell and trade used books. At the Brocante des Livres Anciens, held at the Halle Freyssinet, antique dealers will gather for a week and a half to barter, haggle, and trade in antique reads.",
+    location_id: paris.id
+)
+
+Event.create(
+    name: "Nuit des Musées",
+    description: "For one night in spring, nearly every museum in Paris will open their doors for free between 19.00 and 01.00. The Nuit des Musées was started by the French Department of Culture in 2005 in an effort to expand exposure to and appreciation of, art and culture.",
+    location_id: paris.id
+)
+
+Event.create(
+    name: "Féte de la Musique",
+    description: "This is by far, one of the best holidays of the year in Paris, so get excited, change your travel plans and get yourself to the French capital for a night of music, mayhem and debauchery - the likes of which you've never seen before! On the longest night of the year over 200,000 people will take to the streets of Paris to celebrate the summer solstice, life and music.",
+    location_id: paris.id
+)
+
+Event.create(
+    name: "Paris Autumn Festival",
+    description: "The Paris Autumn Festival was founded in 1972 to combine two existing events, - les Semaines Musicales Internationales (weeks of international music) and the International Dance Festival, with exhibitions of art and theatre. The festival runs from September to December and events can be found on display at various parks and locations throughout Paris.",
+    location_id: paris.id
 )
 
 Site.create(
     name: "Disney World",
-    description: "Take your stupid kids here."
+    description: "Take your stupid kids here.",
+    location_id: orlando.id
 )
 
 Site.create(
-    name: "Quicken Loans Arena",
-    description: "LeBron used to play here! We were good! Honestly!"
+    name: "Universal Studios",
+    description: "A combination theme park and working studio that was designed in consultation with Steven Spielberg to give visitors an interactive experience with the filmmaking industry.",
+    location_id: orlando.id
+)
+
+Site.create(
+    name: "SeaWorld",
+    description: "Animal abuse has never been this fun and family friendly!",
+    location_id: orlando.id
+)
+
+Site.create(
+    name: "Typhoon Lagoon",
+    description: "Typhoon Lagoon is Disney's biggest and most popular water park. There are a wide variety of attractions for all ages, including kiddie rides and swimming and splash areas",
+    location_id: orlando.id
+)
+
+Site.create(
+    name: "Kennedy Space Center Visitor Complex",
+    description: "About an hour's drive away, the Kennedy Space Center Visitor Complex is one of the most popular day trips from Orlando. It gives tourists the unique opportunity to see one of NASA's best-known operations centers.",
+    location_id: orlando.id
 )
 
 Site.create(
     name: "Big Ben",
-    description: "A big f***ing clock in case you need to know what time it is and your phone died."
+    description: "A big f***ing clock in case you need to know what time it is and your phone died.",
+    location_id: london.id
 )
 
 Site.create(
-    name: "Tokyo Tower",
-    description: "Like the Eiffel Tower, but uglier."
+    name: "London Eye",
+    description: "It's a combination ferris wheel/soft drink advertisement.",
+    location_id: london.id
 )
 
-User.create(
-    firstname: "Graham",
-    lastname: "Watson",
+Site.create(
+    name: "Madame Tussauds London",
+    description: "Take pictures in the Uncanny Valley.",
+    location_id: london.id
 )
 
-User.create(
-    firstname: "John",
-    lastname: "Grubbs",
+Site.create(
+    name: "Buckingham Palace",
+    description: "A really big house where some relics of the past live.",
+    location_id: london.id
+)
+
+Site.create(
+    name: "Tower of London",
+    description: "It has a 900-year history as a royal palace, prison and place of execution, arsenal, jewel house and zoo.",
+    location_id: london.id
+)
+
+Site.create(
+    name: "Sydney Opera House",
+    description: "Fat people yellin'",
+    location_id: sydney.id
+)
+
+Site.create(
+    name: "Sydney Harbour Bridge",
+    description: "Supported by massive double piers at each end, it was built in 1932 and remains the world's largest steel arch bridge, connecting the harbor's north and south shores in a single curve rising 134 meters above the water.",
+    location_id: sydney.id
+)
+
+Site.create(
+    name: "The Rocks",
+    description: "On a tongue of land protruding into Sydney Harbour, the Rocks historic area was once home to the Gadigal aboriginal people and later became the country's first site of European settlement. Today, more than 100 heritage sites and buildings jostle along the narrow streets.",
+    location_id: sydney.id
+)
+
+Site.create(
+    name: "Darling Harbour",
+    description: "A hub for tourists and locals alike, Darling Harbour is a waterfront pedestrian precinct packed with shops, restaurants, museums, exhibitions, and entertainment venues.",
+    location_id: sydney.id
+)
+
+Site.create(
+    name: "The Royal Botanic Garden Sydney",
+    description: "The gardens were established in 1816 and encompass 30 hectares of themed gardens with towering trees, palm groves, orchids, ferns, and flocks of fruit bats.",
+    location_id: sydney.id
+)
+
+Site.create(
+    name: "Eiffel Tower",
+    description: "Towering more than 1,000 feet (300 meters) high in the Champ de Mars park, this iron structure was constructed for the 1889 World Exposition. One of the world’s most photographed tourist attractions, the Eiffel Tower presents an excellent photography opportunity for both day and night times.",
+    location_id: paris.id
+)
+
+Site.create(
+    name: "The Louvre",
+    description: "Topping the list of the world’s most visited museums, the Louvre Museum is located in the Louvre Palace with its signature glass pyramid marking its entrance. Housing a collection of more than 1 million objects, the Louvre boasts some of the world’s most famous art works such as Leonardo da Vinci’s “Mona Lisa,” Michelangelo’s “Dying Slave” and the Greek statue, “Venus of Milo.”",
+    location_id: paris.id
+)
+
+Site.create(
+    name: "L'Arc de Triomphe",
+    description: "One of the most popular tourist attractions in Paris, the Arc de Triomphe was constructed in 1806 to memorialize the triumphal battles of Napoleon Bonaparte. Standing 164 feet high and 148 feet (50 by 45 meters) wide, the arch features intricate reliefs depicting victorious battles and engraved names of many who died fighting for the emperor.",
+    location_id: paris.id
+)
+
+Site.create(
+    name: "Notre Dame",
+    description: "Standing more than 400 feet (120 meters) high with two lofty towers and a spire, this marvelous church is considered a supreme example of French Gothic architecture. A tour of this 13th century masterpiece allows visitors to admire the awe-inspiring rose windows, Gothic carvings, beautiful sculptures and a collection of relics.",
+    location_id: paris.id
+)
+
+Site.create(
+    name: "Sacre-Coeur",
+    description: "Situated at the city’s highest point on Montmartre hill, this stunning basilica draws many tourists every year to see its marble architecture and gorgeous interior. A tour awards visitors with views of gold mosaics, stained-glass windows and one of the world’s largest clocks.",
+    location_id: paris.id
 )

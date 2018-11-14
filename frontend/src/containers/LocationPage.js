@@ -23,6 +23,7 @@ class LocationPage extends Component {
     return (
       <div>
         <button onClick={() => this.props.toggleRender("userPage")}>Profile</button>
+        <button onClick={this.toggleRender}>Go Back</button>
 
         <div>
           <h1>{this.props.location.name}</h1>
@@ -41,8 +42,6 @@ class LocationPage extends Component {
             Edit Your {this.props.currentVacationLocation} Vacation
           </button>
         )}
-
-        <button onClick={this.toggleRender}>Go Back</button>
       </div>
     );
   }
