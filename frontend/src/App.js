@@ -148,6 +148,7 @@ class App extends Component {
   };
 
   render() {
+
     if (this.state.render === "default") {
       return (
         <div className="container">

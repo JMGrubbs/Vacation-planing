@@ -32,5 +32,60 @@
 }
 
 img {
-  max-width: 800px;
+  max-width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+button {
+  margin:0 auto;
+  display: block;
+}
+
+li {
+  text-align: center;
+  list-style: none;
+}
+
+input {
+  margin: 0 auto;
+  display: block;
+}
+
+.blocktext {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+.tile-img {
+  max-width: 100%;
+  
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+}
+

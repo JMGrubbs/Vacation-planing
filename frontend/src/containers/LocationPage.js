@@ -16,7 +16,7 @@ class LocationPage extends Component {
     }
   };
   toggleRender = () => {
-    this.props.toggleRender("userPage");
+    this.props.toggleRender("locations");
   };
 
   render() {
@@ -29,7 +29,7 @@ class LocationPage extends Component {
         </div>
         <img alt="oh no, I broke" src={this.props.location.image} />
         <div>
-          <p>{this.props.location.description}</p>
+          <p className="blocktext">{this.props.location.description}</p>
         </div>
         <br />
         {this.props.location.name !== this.props.currentVacationLocation ? (
