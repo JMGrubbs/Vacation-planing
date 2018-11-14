@@ -28,6 +28,12 @@ class User extends Component {
     this.props.clearVacation();
   };
 
+  handleSaveVacationClick = () => {
+    this.props.saveVacation();
+    this.props.clearVacation();
+    this.props.toggleRender("userPage");
+  }
+
   render() {
     return (
       <div>
@@ -61,6 +67,7 @@ class User extends Component {
             />
           );
         })}
+        <button onClick={this.handleSaveVacationClick}>Save Your Vacation</button>
         <br />
         <br />
         <br />
