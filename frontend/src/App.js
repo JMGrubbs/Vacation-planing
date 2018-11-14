@@ -92,7 +92,7 @@ class App extends Component {
 
   saveVacation = () => {
     const data = {
-      name: "Some shitty vacation",
+      name: `My ${this.state.vacation.location_name} Vacation`,
       user_id: this.state.loginUser.id,
       location_id: this.state.vacation.location_id,
       events: this.state.vacation.events.join(", "),
@@ -189,6 +189,7 @@ class App extends Component {
           deleteVacationSite={this.deleteVacationSite}
           changeVacationEvents={this.changeVacationEvents}
           deleteVacationEvent={this.deleteVacationEvent}
+          clearVacation={this.clearVacation}
           saveVacation={this.saveVacation}
           toggleRender={this.toggleRender}
         />
@@ -200,6 +201,7 @@ class App extends Component {
           toggleRender={this.toggleRender}
           user={this.state.loginUser}
           clearVacation={this.clearVacation}
+          saveVacation={this.saveVacation}
           deleteVacationEvent={this.deleteVacationEvent}
           deleteVacationSite={this.deleteVacationSite}
           allVacations={this.state.allVacations}

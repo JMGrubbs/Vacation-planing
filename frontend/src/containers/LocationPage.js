@@ -22,7 +22,7 @@ class LocationPage extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleRender}>Profile</button>
+        <button onClick={() => this.props.toggleRender("userPage")}>Profile</button>
 
         <div>
           <h1>{this.props.location.name}</h1>

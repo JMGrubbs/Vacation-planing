@@ -3,6 +3,10 @@ import EventContainer from "./EventContainer";
 import SiteContainer from "./SiteContainer";
 
 class EventsAndSites extends Component {
+    toggleRender = () => {
+        this.props.toggleRender("userPage")
+    }
+
     render() {
     let locationEvents = this.props.events.filter(e => {
         return e.location_id === this.props.location.id;
@@ -38,7 +42,7 @@ class EventsAndSites extends Component {
             })}
             <br />
             <br />
-            <button onClick={this.props.saveVacation}>Save Your Vacation</button>
+            <button onClick={this.toggleRender}>Profile</button>
             <button onClick={() => this.props.toggleRender("location")}>Go Back</button>
         </div>
     )
