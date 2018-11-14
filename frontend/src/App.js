@@ -66,6 +66,7 @@ class App extends Component {
     let vacation = this.state.vacation;
     vacation.location_id = id;
     vacation.location_name = name;
+    vacation.name = `My ${name} Vacation`;
     this.setState({ vacation });
   };
 
@@ -103,7 +104,6 @@ class App extends Component {
       events: this.state.vacation.events.join(", "),
       sites: this.state.vacation.sites.join(", ")
     };
-    console.log(data);
     fetch(`${URL}/vacations`, {
       method: "POST",
       headers: {
@@ -186,6 +186,8 @@ class App extends Component {
     vacation.sites = [];
     this.setState({ vacation });
   };
+
+  newUser = () => {};
 
   render() {
     if (this.state.render === "default") {

@@ -29,10 +29,20 @@ class User extends Component {
   };
 
   handleSaveVacationClick = () => {
-    this.props.saveVacation();
-    this.props.clearVacation();
-    this.props.toggleRender("userPage");
-  }
+    if (this.props.vacation.location_id) {
+      this.props.saveVacation();
+      this.props.clearVacation();
+      this.props.toggleRender("userPage");
+      let temp = this.state.allUserVacations;
+      temp.push(this.props.vacation);
+      this.setState({
+        allUserVacations: temp
+      });
+    } else {
+      alert("You need to actually go somewhere. Select a location first.");
+    }
+    
+  };
 
   render() {
     return (
@@ -65,7 +75,9 @@ class User extends Component {
             />
           );
         })}
-        <button onClick={this.handleSaveVacationClick}>Save Your Vacation</button>
+        <button onClick={this.handleSaveVacationClick}>
+          Save Your Vacation
+        </button>
         <br />
         <br />
         <br />
