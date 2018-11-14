@@ -92,7 +92,7 @@ class App extends Component {
 
   saveVacation = () => {
     const data = {
-      name: "Some shitty vacation",
+      name: this.state.vacation.location_name,
       user_id: this.state.loginUser.id,
       location_id: this.state.vacation.location_id,
       events: this.state.vacation.events.join(", "),
@@ -106,6 +106,12 @@ class App extends Component {
         Accept: "application/json"
       },
       body: JSON.stringify(data)
+    }).then(() => {
+      let temp = this.state.allVacations;
+      temp.push(data);
+      this.setState({
+        allVacations: temp
+      });
     });
   };
 

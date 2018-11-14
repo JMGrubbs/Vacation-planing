@@ -17,7 +17,6 @@ class User extends Component {
       if (vacation.user_id === this.props.loginUser.id) {
         let temp = this.state.allUserVacations;
         temp.push(vacation);
-        console.log(temp);
         this.setState({
           allUserVacations: temp
         });
@@ -30,7 +29,6 @@ class User extends Component {
   };
 
   render() {
-    console.log(this.state.allUserVacations);
     return (
       <div>
         <h1>User Profile</h1>
@@ -66,7 +64,7 @@ class User extends Component {
         <br />
         <br />
         <br />
-        <h3>Vacations</h3>
+        <h2>Vacations</h2>
         {this.state.allUserVacations.map(vacation => {
           return <Vacation key={vacation.id} vacation={vacation} />;
         })}
