@@ -9,6 +9,7 @@ class VacationsController < ApplicationController
     def create
       @vacation = Vacation.create(
         name: params[:name],
+        user_id: params[:user_id],
         location_id: params[:location_id],
         events: params[:events],
         sites: params[:sites]
@@ -40,3 +41,4 @@ class VacationsController < ApplicationController
       @vacation = Vacation.find(params[:id])
     end
 end
+

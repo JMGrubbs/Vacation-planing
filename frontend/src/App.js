@@ -8,6 +8,8 @@ const URL = "http://localhost:3000";
 
 class App extends Component {
   state = {
+    allUserVacations: [],
+    allVacations: [],
     loginUser: {
       firstname: "",
       lastname: "",
@@ -38,6 +40,10 @@ class App extends Component {
     fetch(`${URL}/sites`)
       .then(resp => resp.json())
       .then(sites => this.setState({ sites }));
+
+    fetch(`${URL}/vacations`)
+      .then(resp => resp.json())
+      .then(allVacations => this.setState({ allVacations }));
   }
 
   toggleRender = page => {
@@ -92,6 +98,7 @@ class App extends Component {
       events: this.state.vacation.events.join(", "),
       sites: this.state.vacation.sites.join(", ")
     };
+    console.log(data);
     fetch(`${URL}/vacations`, {
       method: "POST",
       headers: {
@@ -195,6 +202,8 @@ class App extends Component {
           clearVacation={this.clearVacation}
           deleteVacationEvent={this.deleteVacationEvent}
           deleteVacationSite={this.deleteVacationSite}
+          allVacations={this.state.allVacations}
+          allUserVacations={this.state.allallUserVacations}
         />
       );
     }
