@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import LocationsPage from "./containers/LocationsPage";
 import LocationPage from "./containers/LocationPage";
 import EventsAndSites from "./containers/EventsAndSitesContainer";
+import NewUser from "./containers/newUser";
 import User from "./containers/userPage";
 import "./App.css";
 const URL = "http://localhost:3000";
@@ -61,6 +62,7 @@ class App extends Component {
     let vacation = this.state.vacation;
     vacation.location_id = id;
     vacation.location_name = name;
+    vacation.name = `My ${name} Vacation`;
     this.setState({ vacation });
   };
 
@@ -153,6 +155,8 @@ class App extends Component {
     this.setState({ vacation });
   };
 
+  newUser = () => {};
+
   render() {
     if (this.state.render === "default") {
       return (
@@ -161,6 +165,14 @@ class App extends Component {
           <h3>Login</h3>
           <input className="username" placeholder="username" />
           <button onClick={this.loginUser}>Login</button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <input className="newUser" placeholder="Firstname" />
+          <input className="newUser" placeholder="Lastname" />
+          <button onClick={this.createNewUser}>New User</button>
         </div>
       );
     } else if (this.state.render === "locations") {

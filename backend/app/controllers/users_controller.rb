@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:update]
+    wrap_parameters false
+
     def index
       @users = User.all
       render json: @users
@@ -11,11 +13,12 @@ class UsersController < ApplicationController
     end
 
     def create
-      @vacation = Vacation.create(
+      @user = User.create(
+        id: params[:id],
         firstname: params[:firstname],
         lastname: params[:lastname],
       )
-      render json: @vacation
+      render json: @user
     end
 
     def update
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
     private
   
     def user_params
-      params.permit(:firstname, :lastname)
+      params.permit(:id, :firstname, :lastname)
     end
   
     def find_user

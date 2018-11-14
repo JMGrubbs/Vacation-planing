@@ -15,6 +15,7 @@ class User extends Component {
   componentWillMount = () => {
     this.props.allVacations.map(vacation => {
       if (vacation.user_id === this.props.loginUser.id) {
+        console.log(vacation.name);
         let temp = this.state.allUserVacations;
         temp.push(vacation);
         this.setState({
@@ -32,9 +33,16 @@ class User extends Component {
     this.props.saveVacation();
     this.props.clearVacation();
     this.props.toggleRender("userPage");
-  }
+    let temp = this.state.allUserVacations;
+    console.log(temp);
+    temp.push(this.props.vacation);
+    this.setState({
+      allUserVacations: temp
+    });
+  };
 
   render() {
+    console.log(this.state.allUserVacations);
     return (
       <div>
         <h1>User Profile</h1>
@@ -67,7 +75,9 @@ class User extends Component {
             />
           );
         })}
-        <button onClick={this.handleSaveVacationClick}>Save Your Vacation</button>
+        <button onClick={this.handleSaveVacationClick}>
+          Save Your Vacation
+        </button>
         <br />
         <br />
         <br />
