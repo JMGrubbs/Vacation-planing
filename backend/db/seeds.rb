@@ -48,7 +48,7 @@ Vacation.create(name: "To London")
 Vacation.create(name: "To Paris")
 Vacation.create(name: "To Kansas")
 
-User.create(firstname: "John", lastname: "Doe")
+User.create(firstname: "Jon", lastname: "Doe")
 User.create(firstname: "Jane", lastname: "Doe")
 User.create(firstname: "Jordan", lastname: "Doe")
 User.create(firstname: "Kim", lastname: "Doe")

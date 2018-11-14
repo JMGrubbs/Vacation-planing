@@ -148,7 +148,6 @@ class App extends Component {
   };
 
   render() {
-
     if (this.state.render === "default") {
       return (
         <div className="container">
@@ -205,6 +204,7 @@ class App extends Component {
           deleteVacationSite={this.deleteVacationSite}
           allVacations={this.state.allVacations}
           allUserVacations={this.state.allallUserVacations}
+          loginUser={this.state.loginUser}
         />
       );
     }

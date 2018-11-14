@@ -2,10 +2,27 @@ import React, { Component } from "react";
 import "../App.css";
 import Event from "./Event";
 import Site from "./Site";
+import Vacation from "./vacation";
 
 class User extends Component {
+  state = {
+    allUserVacations: []
+  };
   toggleRender = () => {
     this.props.toggleRender("locations");
+  };
+
+  componentWillMount = () => {
+    this.props.allVacations.map(vacation => {
+      if (vacation.user_id === this.props.loginUser.id) {
+        let temp = this.state.allUserVacations;
+        temp.push(vacation);
+        console.log(temp);
+        this.setState({
+          allUserVacations: temp
+        });
+      }
+    });
   };
 
   clearVacation = () => {
@@ -13,6 +30,7 @@ class User extends Component {
   };
 
   render() {
+    console.log(this.state.allUserVacations);
     return (
       <div>
         <h1>User Profile</h1>
@@ -49,6 +67,9 @@ class User extends Component {
         <br />
         <br />
         <h3>Vacations</h3>
+        {this.state.allUserVacations.map(vacation => {
+          return <Vacation key={vacation.id} vacation={vacation} />;
+        })}
       </div>
     );
   }
