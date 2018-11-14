@@ -6,7 +6,7 @@ class LocationContainer extends Component {
     return (
       <div onClick={() => this.props.changeLocation(this.props.location)}>
         <p>{this.props.location.name}</p>
-        <img alt="oh no, i broke" src={this.props.location.image} />
+        <img className="tile-img" alt="oh no, i broke" src={this.props.location.image} />
       </div>
     );
   }
